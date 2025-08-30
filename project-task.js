@@ -43,18 +43,14 @@ Step 4: Test Your Solution
 // ============================================
 
 
-function processFile(fileName, fileData) 
-{
-  try 
-  {
+function processFile(fileName, fileData) {
+  try {
     // TODO: Add input validation here  
-    if (!fileName || typeof fileName !== "string") 
-    {
+    if (!fileName || typeof fileName !== "string") {
       throw new Error("Filename is not valid")
     }   
 
-    if (!fileData || typeof fileData !== "string")
-    {
+    if (!fileData || typeof fileData !== "string") {
       throw new Error("Filedata is not valid");
     }
     
@@ -66,16 +62,13 @@ function processFile(fileName, fileData)
     console.log(`Reading from file: ${fileName}`);
     console.log(`Writing "${fileData}" to file: ${fileName}`);    
   } 
-  catch (err) 
-  {
+  catch (err) {
     // TODO: Implement error handling
     console.error(`Error trying to process file: ${err.message}`);
   }
   // TODO: Implement a finally block to close resources
-  finally 
-  {
-    if (typeof fileName !== "string" && typeof fileName !== "number")
-    {
+  finally {
+    if (typeof fileName !== "string" && typeof fileName !== "number") {
       fileName = "";
     }
 
