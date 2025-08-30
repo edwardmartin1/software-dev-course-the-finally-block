@@ -42,28 +42,80 @@ Step 4: Test Your Solution
 // 🛠️ Starter Code: processFile Function
 // ============================================
 
-function processFile(fileName, fileData) {
-  try {
-    // TODO: Add input validation here
+
+function processFile(fileName, fileData) 
+{
+  try 
+  {
+    // TODO: Add input validation here  
+    if (!fileName || typeof fileName !== "string") 
+    {
+      throw new Error("Filename is not valid")
+    }   
+
+    if (!fileData || typeof fileData !== "string")
+    {
+      throw new Error("Filedata is not valid");
+    }
     
     // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
     
     // TODO: Add simulated file operations (reading/writing)
-    
-  } catch (err) {
+    console.log(`Reading from file: ${fileName}`);
+    console.log(`Writing "${fileData}" to file: ${fileName}`);    
+  } 
+  catch (err) 
+  {
     // TODO: Implement error handling
-    console.error(err);
+    console.error(`Error: ${err.message}`);
   }
   // TODO: Implement a finally block to close resources
+  finally 
+  {
+    //let stringFileName = String(fileName);
+
+    //if (stringFileName === "undefined" || typeof stringFileName !== "string")
+    //{
+    //  stringFileName = " ";
+    //}
+    
+    /*
+    if (typeof fileName === "undefined")
+    {
+      fileName = " ";
+    }
+    */
+
+    if (typeof fileName !== "string" && typeof fileName !== "number")
+    {
+      fileName = "";
+    }
+
+    //console.log(`Closing file: ${String(${fileName})}`);
+    console.log(`Closing file: ${fileName}`);
+  }
 }
 
 // ============================================
 // 🧪 Test Cases Below
 // ============================================
 
-processFile(); // ❌ ReferenceError: File name is missing
-processFile("myFile.txt", 42); // ❌ TypeError: File data must be a string
-processFile("myFile.txt", ""); // ❌ Error: File data cannot be empty
+//processFile("", "Hello, world!");
+//console.log();
+//processFile(42, "Hello, world!");
+//console.log();
+//processFile(true, "Hello, world!");
+//console.log();
+
+//processFile(); // ❌ ReferenceError: File name is missing
+//console.log();
+//processFile("myFile.txt", 42); // ❌ TypeError: File data must be a string
+//console.log();
+//processFile("myFile.txt", ""); // ❌ Error: File data cannot be empty
+//console.log();
 processFile("myFile.txt", "Hello, world!"); // ✅ Should process successfully
+console.log();
+
+
