@@ -69,31 +69,16 @@ function processFile(fileName, fileData)
   catch (err) 
   {
     // TODO: Implement error handling
-    console.error(`Error: ${err.message}`);
+    console.error(`Error trying to process file: ${err.message}`);
   }
   // TODO: Implement a finally block to close resources
   finally 
   {
-    //let stringFileName = String(fileName);
-
-    //if (stringFileName === "undefined" || typeof stringFileName !== "string")
-    //{
-    //  stringFileName = " ";
-    //}
-    
-    /*
-    if (typeof fileName === "undefined")
-    {
-      fileName = " ";
-    }
-    */
-
     if (typeof fileName !== "string" && typeof fileName !== "number")
     {
       fileName = "";
     }
 
-    //console.log(`Closing file: ${String(${fileName})}`);
     console.log(`Closing file: ${fileName}`);
   }
 }
@@ -102,20 +87,20 @@ function processFile(fileName, fileData)
 // 🧪 Test Cases Below
 // ============================================
 
-//processFile("", "Hello, world!");
-//console.log();
-//processFile(42, "Hello, world!");
-//console.log();
-//processFile(true, "Hello, world!");
-//console.log();
-
-//processFile(); // ❌ ReferenceError: File name is missing
-//console.log();
-//processFile("myFile.txt", 42); // ❌ TypeError: File data must be a string
-//console.log();
-//processFile("myFile.txt", ""); // ❌ Error: File data cannot be empty
-//console.log();
+console.log("Test 1");
+processFile("", "Hello, world!");
+console.log("Test 2");
+processFile(42, "Hello, world!");
+console.log("Test 3");
+processFile(true, "Hello, world!");
+console.log("Test 4");
+processFile(); // ❌ ReferenceError: File name is missing
+console.log("Test 5");
+processFile("myFile.txt", 42); // ❌ TypeError: File data must be a string
+console.log("Test 6");
+processFile("myFile.txt", ""); // ❌ Error: File data cannot be empty
+console.log("Test 7");
 processFile("myFile.txt", "Hello, world!"); // ✅ Should process successfully
-console.log();
+
 
 
