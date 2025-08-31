@@ -43,17 +43,29 @@ Step 4: Test Your Solution
 // ============================================
 
 
-function processFile(fileName, fileData) {
+function processFile(fileName, fileData) {    
   try {
     // TODO: Add input validation here  
-    if (!fileName || typeof fileName !== "string") {
-      throw new Error("Filename is not valid")
+    if (!fileName) {
+      throw new ReferenceError("File name is missing.");
     }   
 
-    if (!fileData || typeof fileData !== "string") {
-      throw new Error("Filedata is not valid");
+    if (typeof fileName !== "string") {
+      throw new TypeError("File name must be a string.");
     }
-    
+
+    if (!fileData) {
+      throw new ReferenceError("File data is missing.");
+    }
+
+    if (typeof fileData !== "string") {
+      throw new TypeError("File data must be a string.");
+    }
+
+    if (fileData.trim() === "") {
+      throw new Error("File data cannot be empty.");
+    }
+
     // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
@@ -64,7 +76,7 @@ function processFile(fileName, fileData) {
   } 
   catch (err) {
     // TODO: Implement error handling
-    console.error(`Error trying to process file: ${err.message}`);
+    console.error(`Error trying to process file: ${err.name}: ${err.message}`);
   }
   // TODO: Implement a finally block to close resources
   finally {
@@ -82,18 +94,36 @@ function processFile(fileName, fileData) {
 
 console.log("Test 1");
 processFile("", "Hello, world!");
+
+console.log();
 console.log("Test 2");
 processFile(42, "Hello, world!");
+
+console.log();
 console.log("Test 3");
 processFile(true, "Hello, world!");
+
+console.log();
 console.log("Test 4");
 processFile(); // ❌ ReferenceError: File name is missing
+
+console.log();
 console.log("Test 5");
 processFile("myFile.txt", 42); // ❌ TypeError: File data must be a string
+
+console.log();
 console.log("Test 6");
 processFile("myFile.txt", ""); // ❌ Error: File data cannot be empty
+
+console.log();
 console.log("Test 7");
 processFile("myFile.txt", "Hello, world!"); // ✅ Should process successfully
 
+console.log();
+console.log("Test 8");
+processFile("myFile.txt", " ");
 
+console.log();
+console.log("Test 9");
+processFile("myFile.txt");
 
